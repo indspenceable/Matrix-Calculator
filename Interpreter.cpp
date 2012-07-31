@@ -28,7 +28,7 @@ bool from_string(T& t,
 
 Interpreter::Interpreter() {
 	C_Ptr<HelpTopic> welcome(new HelpTopic("WELCOME", "Welcome to the matrix manipulator. Please begin calculating, or use HELP for helpfiles."));
-	C_Ptr<HelpTopic> help(new HelpTopic("HELP","This program acts as a calculator that can manipulate matrixes and real numbers in a variety of ways. To access subtopics, use HELP [SUBTOPIC] ... [SUBTOPIC]"));
+	C_Ptr<HelpTopic> help(new HelpTopic("HELP","This program acts as a calculator that can manipulate matrices and real numbers in a variety of ways. To access subtopics, use HELP [SUBTOPIC] ... [SUBTOPIC]"));
 	{
 		C_Ptr<HelpTopic> commands(new HelpTopic("COMMANDS","There are a number of commands that you can use in this calculator. These commands are not a valid part of an expression, but can be used at the begining of a line of input. All commands are in all capital letters. See subtopics for more information."));
 		{
@@ -44,7 +44,7 @@ Interpreter::Interpreter() {
 		C_Ptr<HelpTopic> operations(new HelpTopic("OPERATIONS", "The manipulator offers a number of operations for use with both numbers and matrices: +,-,*,/,^. Additionally, there are some matrix-only operators: Transpose(~). Operator precidence is as follows: Parenthesis, Multiplication and Division, Addition and Subtraction, Unary Operations."));
 		{
 			C_Ptr<HelpTopic> addition_subtraction(new HelpTopic("ADDITION AND SUBTRACTION", "Any two numeric values, or two matrix values of the same size, can be added to or subtracted from one another, producing the expected result, using the '+' or '-' operators."));
-			C_Ptr<HelpTopic> multiplication(new HelpTopic("MULTIPLICATION", "Any two scalar values can be multiplied together, given the expected result, and any matrix and scalar value can be multiplied together, multiplying every element of the matrix by the scalar. Two matrixes can be multiplied together, following the rules of matrix multiplication, if the the width of the left matrix is equal to the height of the right matrix. To multiply in any context, use the '*' operator."));
+			C_Ptr<HelpTopic> multiplication(new HelpTopic("MULTIPLICATION", "Any two scalar values can be multiplied together, given the expected result, and any matrix and scalar value can be multiplied together, multiplying every element of the matrix by the scalar. Two matrices can be multiplied together, following the rules of matrix multiplication, if the the width of the left matrix is equal to the height of the right matrix. To multiply in any context, use the '*' operator."));
 			C_Ptr<HelpTopic> division(new HelpTopic("DIVISION", "Any scalar, or any any matrix value can be divided by any non-zero scalar value, giving the appropriate response. This is acheived with the '/' operator."));
 			C_Ptr<HelpTopic> determinant(new HelpTopic("DETERMINANT", "Any matrix value preceded by a '@' will evaluate to the determinant of that matrix."));
 			C_Ptr<HelpTopic> transpose(new HelpTopic("TRANSPOSE", "Any matrix value preceded by a '~' will evaluate to the transposed matrix (that is, refected over the main diagonal."));
@@ -61,18 +61,18 @@ Interpreter::Interpreter() {
 			operations->addSubTopic(addition_subtraction,"+");
 			operations->addSubTopic(addition_subtraction,"-");
 		}
-		C_Ptr<HelpTopic> matrixes(new HelpTopic("MATRIXES", "To make a matrix, one uses the # token, followed by the correct arugments for the type of matrix one would wish to create."));
+		C_Ptr<HelpTopic> matrices(new HelpTopic("MATRICES", "To make a matrix, one uses the # token, followed by the correct arugments for the type of matrix one would wish to create."));
 		{
 		  C_Ptr<HelpTopic> filledmatrix(new HelpTopic("STANDARD", "Syntax: #[HEIGHT WIDTH][<1,1> <1,2>... <2,1> <2,2>... <HEIGHT,WIDTH].\n Example: #[1 2][0 5] -> [[0] [5]]"));
 		  C_Ptr<HelpTopic> emptymatrix(new HelpTopic("EMPTY", "Syntax: #E[HEIGHT WIDTH]. Makes a matrix of the correct size, filled with zeros. Example: #E[1 2]-> [[0] [0]]"));
 		  C_Ptr<HelpTopic> identity(new HelpTopic("IDENTITY", "Syntax: #I[HEIGHT]. Makes a square matrix of the correct size, with zeros except for the main diagonal, which is made up of 1s."));
 
-		  matrixes->addSubTopic(filledmatrix);
-		  matrixes->addSubTopic(emptymatrix);
-		  matrixes->addSubTopic(identity);
+		  matrices->addSubTopic(filledmatrix);
+		  matrices->addSubTopic(emptymatrix);
+		  matrices->addSubTopic(identity);
 		}
 
-		help->addSubTopic(matrixes);
+		help->addSubTopic(matrices);
 		help->addSubTopic(commands);
 		help->addSubTopic(operations);
 		help->addSubTopic(welcome);
