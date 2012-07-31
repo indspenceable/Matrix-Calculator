@@ -1,0 +1,3 @@
+I have included a help system in my program to answer any questions. Basically, to use the calculator, you enter your expression, and it will evaluate it. You can quit with QUIT, or set variables with SET <expr>. To access those variables, you use $<variable name>. Matrixes are made with #[h w][<1,1> <1,2>...<2,1> <2,2>... <h,w>]. Access the help files with HELP.
+
+I have adhered to the honor code in this assignment.
